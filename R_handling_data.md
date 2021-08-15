@@ -1,7 +1,5 @@
 # Use `R` to Handle Data
 
-@(Python)[Tidyverse, Data pre-processing]
-
 ----
 ## Read data from a folder
 ```r
@@ -76,7 +74,5 @@ ggplot(data=summary, # indicate the source of data
           legend.box.margin=margin(0,0,0,0), # set legend box margins
           #axis.title.x=element_text(margin=margin(t=8, unit='pt')), # set offset between x axis and label
           axis.title.y=element_text(margin=margin(r=10, unit='pt')))
-#axis.text.x=element_text(angle=45, vjust=1, hjust=1)) # set offset between y axis and label
-
-	
+#axis.text.x=element_text(angle=45, vjust=1, hjust=1)) # set offset between y axis and label	
 ```
