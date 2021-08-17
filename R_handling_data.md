@@ -1,6 +1,5 @@
 # Use `R` to Handle Data
 
-----
 ## Read data from a folder
 ```r
 ### foo, bar, baz are just placeholders!
@@ -12,7 +11,7 @@ library('readxl')     # module for reading Excel spreadsheet
 
 data <- read_excel('foo.xlsx', sheet='bar')
 ```
------
+
 ## Obtain summary of data
 ```r
 # We create a summary of raw data. 
@@ -27,7 +26,7 @@ summary <- as.data.frame( # transform the result as dataframe
         summarize(sd=sd(foo), concentration=mean(foo)) %>%
         distinct())
 ```
------
+
 ## Different `ggplot` layers
 
 - Layer names normally start with `geom_`.
