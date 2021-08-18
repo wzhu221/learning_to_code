@@ -55,7 +55,7 @@ colnames(pred)[2] <- 'fit' # rename both columns accordingly as 'dimer' and 'fit
 
 ggplot(pred, aes(dimer, fit)) + 
     geom_smooth_ci(color='#A8497A', ci_alpha=0, size=1.2) + # this layer plots the fitting curve
-    geom_point(size=2.2, color='darkgrey', shape=15) + # this layer plots the fitted points
+    # geom_point(size=2.2, color='darkgrey', shape=15) + # this layer plots the fitted points
     geom_point(data=calib, aes(x=dimer, y=concentration), size=2.2, color='black') + # this layer plots the original concentration points
     scale_y_continuous(guide='prism_minor', # to add minor ticks
                        limits=c(0, 2500),
@@ -66,6 +66,7 @@ ggplot(pred, aes(dimer, fit)) +
                        limits=c(0, 30000),
                        breaks=seq(0, 30000, 5000),
                        minor_breaks=seq(0, 32000, 1000)) +
+    coord_flip() +
     theme_linedraw(base_rect_size=1.5,
                    base_line_size=1.5) + xlab('Signal intensity (a.u.)') + ylab('Concentration (ppb)') +
     theme(text=element_text(size=11, family='Helvetica', face='bold'), # set font
