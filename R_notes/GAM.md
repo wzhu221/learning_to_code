@@ -1,6 +1,7 @@
 # The Use of Generalised Additive Model (GAM) with `R`
 
 ## Load packages
+
 ```r
 library('tidyverse')  # data handling and cleanup
 library('readxl')	  # data reading from Excel spreadsheet
@@ -9,6 +10,7 @@ library('tidymv')	  # better visualisation of GAM fittings
 ```
 
 ## Read data and implement GAM
+
 ```r
 calib <- read_excel('Data/gam.xlsx', sheet='foo')
 calib <- data[1:27, 1:2] # pick only the signal intensity 
@@ -29,6 +31,7 @@ summary.gam(gam_compound)	# get a statistical overview of the model,
 ```
 
 ## Make predictions of experimental data using the GAM we just built
+
 ```r
 expdata <- cbind(foo[2:6, 26], 
                  foo[2:6, 18]) # acquire the new data, the first column as monomer, the second column as dimer
@@ -44,25 +47,16 @@ write.csv(pred, 'foo.csv') # export the results as csv for further use in Excel
 ```
 
 ## Make a nice-looking fitting plot using `ggplot2`
+
 ```r
-
-
-pred <- as.data.frame(predict.gam(gam_compound, se.fit=TRUE))
-pred <- cbind(data$dimer, pred)
-
-pred1 <- data
-colnames(pred1)[2] <- 'fit'
-pred1 <- cbind(pred1, pred$se.fit)
-colnames(pred1)[3] <- 'se.fit'
-
+pred <- as.data.frame(predict.gam(gam_compound, se.fit=TRUE)) # make predictions on the calibration data
 colnames(pred)[1] <- 'dimer'
-colnames(pred)[2] <- 'fit'
-pred <- cbind(pred, pred1$concentration)
+colnames(pred)[2] <- 'fit' # rename both columns accordingly as 'dimer' and 'fit'
 
-pred %>% ggplot(aes(dimer, fit)) + 
-    geom_smooth_ci(color='#A8497A', ci_alpha=0, size=1.2) +
-    geom_point(size=2.2, color='darkgrey', shape=15) +
-    geom_point(data=pred1, aes(x=dimer, y=concentration), size=2.2, color='black') +
+ggplot(pred, aes(dimer, fit)) + 
+    geom_smooth_ci(color='#A8497A', ci_alpha=0, size=1.2) + # this layer plots the fitting curve
+    geom_point(size=2.2, color='darkgrey', shape=15) + # this layer plots the fitted points
+    geom_point(data=calib, aes(x=dimer, y=concentration), size=2.2, color='black') + # this layer plots the original concentration points
     scale_y_continuous(guide='prism_minor', # to add minor ticks
                        limits=c(0, 2500),
                        breaks=seq(0, 2500, 500),
@@ -88,6 +82,4 @@ pred %>% ggplot(aes(dimer, fit)) +
           axis.title.x=element_text(margin=margin(t=8, unit='pt')), # set offset between x axis and label
           # set offset between y axis and label
           axis.title.y=element_text(margin=margin(r=10, unit='pt')))
-
-
 ```
