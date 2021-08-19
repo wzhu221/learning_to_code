@@ -49,7 +49,8 @@ write.csv(pred, 'foo.csv') # export the results as csv for further use in Excel
 ## Make a nice-looking fitting plot using `ggplot2`
 
 ```r
-pred <- as.data.frame(predict.gam(gam_compound, se.fit=TRUE)) # make predictions on the calibration data
+# make predictions on the calibration data, when no data is passed to predict.gam, it uses the calibration data by default
+pred <- as.data.frame(predict.gam(gam_compound, se.fit=TRUE)) 
 colnames(pred)[1] <- 'dimer'
 colnames(pred)[2] <- 'fit' # rename both columns accordingly as 'dimer' and 'fit'
 
@@ -66,7 +67,7 @@ ggplot(pred, aes(dimer, fit)) +
                        limits=c(0, 30000),
                        breaks=seq(0, 30000, 5000),
                        minor_breaks=seq(0, 32000, 1000)) +
-    coord_flip() +
+    coord_flip() + # flip the x and y coordinates
     theme_linedraw(base_rect_size=1.5,
                    base_line_size=1.5) + xlab('Signal intensity (a.u.)') + ylab('Concentration (ppb)') +
     theme(text=element_text(size=11, family='Helvetica', face='bold'), # set font
