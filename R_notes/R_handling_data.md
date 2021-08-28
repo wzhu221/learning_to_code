@@ -44,7 +44,7 @@ When you have criterion 'foo' or criterion 'bar', use vertical separator | to se
 new_dataframe <- dataframe[which(dataframe$column1=='foo' | dataframe$column2=='bar'), ]
 ```
 
-## Run ANOVA and _post-hoc_ pair-wise tests
+## Run ANOVA and _post-hoc_ pair-wise tests (Tukey's HSD)
 
 The ANOVA can be easily run through a `R` base function: `aov`. 
 
