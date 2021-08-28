@@ -51,6 +51,7 @@ The ANOVA can be easily run through a `R` base function: `aov`.
 Suppose that you have a dataframe `df` that is organised into the long format with the independent variable called `factor` and the dependent variable called `result`, then simply run:
 
 ```r
+df$factor <- as.factor(df$factor) # run this if the factor variable is in the formate of numbers
 aov(result ~ factor, data=df)
 ```
 
