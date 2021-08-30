@@ -29,4 +29,6 @@ ln -s /opt/anaconda3/bin/pygmentize /usr/local/bin
 ```
 This has created a symbolic link to the pygmentize package in the `/usr/local/bin` directory.
 
-Also I manually deleted all temporary files in the LaTeX project folder and recompiled. Everything was working as expected. Problem solved.
+Also I manually deleted all temporary files in the LaTeX project folder and recompiled. 
+
+Then everything was working as expected. Problem solved.
