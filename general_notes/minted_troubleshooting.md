@@ -1,12 +1,16 @@
 # Background
 
-The pakage `pygmentize` has been installed using `pip install pygmentize` command and was verified using `which pygmentize` in terminal. This message was returned: `/opt/anaconda3/bin/pygmentize`. 
+The pakage `pygmentize` has been installed using `pip install pygmentize` command and was verified using `which pygmentize` in terminal. This message was returned: 
+```shell
+/opt/anaconda3/bin/pygmentize 
+```
 
 The package `Pygments` has been installed using `sudo easy_install Pygments` command.
 
 The environment PATH, which was checked using `echo $PATH` in the terminal, returned this message:
 ```shell
-/opt/anaconda3/bin:/opt/anaconda3/condabin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Library/TeX/texbin:/usr/local/aria2/bin:/opt/X11/bin
+/opt/anaconda3/bin:/opt/anaconda3/condabin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Library/TeX/texbin:
+/usr/local/aria2/bin:/opt/X11/bin
 ```
 
 When the package `minted` was used in LaTeX, an error message prompted that `...  you must have pygmentize installed ...`.
