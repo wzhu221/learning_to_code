@@ -1,6 +1,8 @@
 # Background
 
-The pakage `pygmentize` has been installed using `pip install pygmentize` command and was verified using `which pygmentize` in terminal. This message was returned: 
+The pakage `pygmentize` has been installed using `pip install pygmentize` command and was verified using `which pygmentize` in terminal.
+
+This message was returned after verification: 
 ```shell
 /opt/anaconda3/bin/pygmentize 
 ```
