@@ -8,10 +8,10 @@
 
 Original post can be found [here](https://code2care.org/pages/permanently-set-path-variable-in-mac-zsh-shell).
 
-	- Open terminal, type `nano ~/.zshrc`. Hit enter.
-	- Add `$PATH` variable details: `export PATH="$PATH:/usr/local/mysql/bin"`.
-	- Press `Control + X`, followed by `Y` to save the file, press enter to exit `nano`.
-	- Type command `source ~/.zshrc` to apply changes.
+- Open terminal, type `nano ~/.zshrc`. Hit enter.
+- Add `$PATH` variable details: `export PATH="$PATH:/usr/local/mysql/bin"`.
+- Press `Control + X`, followed by `Y` to save the file, press enter to exit `nano`.
+- Type command `source ~/.zshrc` to apply changes.
 
 ## Accessing MySQL through terminal
 
