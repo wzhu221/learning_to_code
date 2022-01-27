@@ -15,21 +15,10 @@ Original post can be found [here](https://code2care.org/pages/permanently-set-pa
 
 ## Accessing MySQL through terminal
 
-Open terminal, enter `mysql -uroot -p`. Enter the password for `root` user. You should now see this screen.
+- Open terminal, enter `mysql -uroot -p`.
+- Enter the password for `root` user.
+- You should now see this screen.
 
 ![sql screen](images/mysql_first_screen.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- If you see the above information, then the installation has succeeded.
