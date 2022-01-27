@@ -17,7 +17,7 @@ Original post can be found [here](https://code2care.org/pages/permanently-set-pa
 
 Open terminal, enter `mysql -uroot -p`. Enter the password for `root` user. You should now see this screen.
 
-![sql screen](mysql_first_screen.png)
+![sql screen](images/mysql_first_screen.png)
 
 
 
