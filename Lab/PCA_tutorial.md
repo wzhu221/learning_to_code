@@ -1,6 +1,8 @@
-# PCA tutorial
+# PCA TUTORIAL
 
-The following code can be used to generate the PCA plot. 
+## score plot
+
+The following code can be used to generate the PCA score plot. 
 
 ```R
 library('tidyverse')
@@ -19,7 +21,7 @@ read_excel('Data/<FILE_NAME>.xlsx', # replace <FILE_NAME> with the name of your 
         label='none',
         habillage=read_excel('Data/<FILE_NAME>.xlsx', # replace <FILE_NAME> with the name of your results spreadsheet, do not remove the enclosing single quotation marks
                              sheet='<SHEET_NAME>')$<COLUMN_NAME_OF_GROUP_NAMES>, # replace <SHEET_NAME> with the name of sheet where you have your data (do not remove the enclosing single quotation marks), replace <COLUMN_NAME_OF_GROUP_NAMES> with the name of the column where you store your grouping information
-        addEllipses=T
+        addEllipses=T # this argument adds confidence ellipses
     )
 ```
 
@@ -44,3 +46,28 @@ Notes when implementing the code with your own data:
 A sample output looks like this:
 
 ![PCA](Images/sample_pca.png)
+
+## loadings plot
+
+The following code can be used to generate the PCA score plot.
+
+The data are inherited from the previous section (score plots)
+
+```R
+read_excel('Data/<FILE_NAME>.xlsx', # replace <FILE_NAME> with the name of your results spreadsheet (do not remove the enclosing single quotation marks)
+           sheet='<SHEET_NAME>') %>% # replace <SHEET_NAME> with the name of sheet where you have your data (do not remove the enclosing single quotation marks)
+    normalize(<COLUMN_OF_FIRST_PEAK>:<COLUMN_OF_LAST_PEAK>) %>% # replace <COLUMN_OF_FIRST_PEAK> with the column number of the first peak, replace <COLUMN_OF_LAST_PEAK> with the column number of the last peak
+    dplyr::select(<COLUMN_OF_SAMPLE_NAMES>, <COLUMN_OF_FIRST_PEAK>:<COLUMN_OF_LAST_PEAK>) %>% #replace <COLUMN_OF_SAMPLE_NAMES> with the column number of the column where you stored your sample names, replace <COLUMN_OF_FIRST_PEAK> with the column number of the first peak, replace <COLUMN_OF_LAST_PEAK> with the column number of the last peak
+    column_to_rownames('<COLUMN_NAME_OF_SAMPLE_NAMES>') %>% #replace <COLUMN_OF_SAMPLE_NAMES> with the column number of the column where you store your sample names (do not remove the enclosing single quotation marks)
+    prcomp(scale=F) %>% 
+    fviz_pca_var(
+        col.var='contrib',
+        gradient.cols = c('#00AFBB', '#E7B800', '#FC4E07'),
+        repel=T # this argument avoids text overlapping
+    )
+```
+
+A sample output looks like this:
+
+![loadings plot](Images/loadings_plot.png)
+
