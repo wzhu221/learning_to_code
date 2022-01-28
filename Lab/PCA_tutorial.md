@@ -34,26 +34,13 @@ Notes when implementing the code with your own data:
 - | Sample_name | Group | Peak_1 | ...... | Peak_30 |
   | ----------- | ----- | ------ | ------ | ------- |
   |             |       |        |        |         |
+  |             |       |        |        |         |
+  |             |       |        |        |         |
+  |             |       |        |        |         |
 
   You are advised agaist having spaces in your column names and spaces should ideally be replaced with underscores, e.g., `sample_name` is preferred over `sample name`
 
 
-
-A sample output looks like this
+A sample output looks like this:
 
 ![PCA](Images/sample_pca.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
