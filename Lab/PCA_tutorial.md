@@ -33,10 +33,10 @@ Notes when implementing the code with your own data:
 
 - | Sample_name | Group | Peak_1 | ...... | Peak_30 |
   | ----------- | ----- | ------ | ------ | ------- |
-  |             |       |        |        |         |
-  |             |       |        |        |         |
-  |             |       |        |        |         |
-  |             |       |        |        |         |
+  | XXX.mea     | A     | ...... | ...... | ......  |
+  | XXX.mea     | B     | ...... | ...... | ......  |
+  | XXX.mea     | B     | ...... | ...... | ......  |
+  | XXX.mea     | C     | ...... | ...... | ......  |
 
   You are advised agaist having spaces in your column names and spaces should ideally be replaced with underscores, e.g., `sample_name` is preferred over `sample name`
 
