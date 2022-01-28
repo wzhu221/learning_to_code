@@ -40,7 +40,7 @@ Notes when implementing the code with your own data:
   | XXX.mea     | B     | ...... | ...... | ......  |
   | XXX.mea     | C     | ...... | ...... | ......  |
 
-  You are advised agaist having spaces in your column names and spaces should ideally be replaced with underscores, e.g., `sample_name` is preferred over `sample name`
+  You are advised against having spaces in your column names. Spaces should ideally be replaced with underscores, e.g., `sample_name` is preferred over `sample name`
 
 
 A sample output looks like this:
