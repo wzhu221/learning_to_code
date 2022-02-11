@@ -1,4 +1,4 @@
-# Background
+### Background
 
 The pakage `pygmentize` has been installed using `pip install pygmentize` command and was verified using `which pygmentize` in terminal.
 
@@ -19,7 +19,7 @@ When the package `minted` was used in LaTeX, an error message prompted that `...
 
 This was perplexing since the installation of `pygmentize` had been verified.
 
-# Solution
+### Solution
 
 The [original post](https://tex.stackexchange.com/questions/159620/cannot-get-pygmentize-to-work-correctly-on-mac) is from tex.stackexchange.
 
