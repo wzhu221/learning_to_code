@@ -2,34 +2,30 @@
 
 -- using PostgreSQL for the following code
 
-WITH t2 AS (
-    WITH t1 AS (
-        SELECT DISTINCT
-            customer_no,
-            account_no,
-            -- acquire the latest record of transaction
-            MAX(trans_date) OVER (PARTITION BY account_no) AS latest_transaction
-        FROM
-            transaction
-    )
+
+WITH latest_trans_on_account AS (
     SELECT
-        account_no
+        account_no,
+        -- acquire the latest record of transaction
+        MAX(trans_date) AS latest_transaction
     FROM
-        t1
-    WHERE
+        transaction
+    GROUP BY
+        account_no
+    HAVING
         -- assume that "in the last 3 months" means between today and counting backwards 3 months
-        latest_transaction <= CURRENT_DATE AND latest_transaction >= (CURRENT_DATE - INTERVAL "3 MONTHS")
+        MAX(trans_date) <= CURRENT_DATE AND MAX(trans_date) >= (CURRENT_DATE - INTERVAL '3 MONTHS')
 )
-SELECT
+SELECT DISTINCT
     a.customer_no AS customers
 FROM
-    account AS a
+    account
 JOIN
-    t2
+    latest_trans_on_account AS latest
 ON
-    a.account_no = t2.account_no
+    account.account_no = latest.account_no
 WHERE
-    a.product_type_code <> "BUSS" AND
-    a.open_date >= "2018-07-01"
+    a.product_type_code <> 'BUSS' AND
+    a.open_date >= '2018-07-01'
 
 ```
